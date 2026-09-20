@@ -27,3 +27,22 @@ def test_mask_email_basic():
     email = "priya@example.com"
     result = mask_email(email)
     assert result == "pr***@example.com"
+
+
+def test_mask_email_invalid_value_error():
+    """Test invalid emails raise ValueError."""
+    with pytest.raises(ValueError):
+        mask_email("not-an-email")
+
+
+def test_normalize_phone():
+    """Test stripping dashes from a valid phone number."""
+    phone = "555-123-4567"
+    result = normalize_phone(phone)
+    assert result == "5551234567"
+
+
+def test_normalize_phone_invalid_value_error():
+    """Test invalid phones raise ValueError."""
+    with pytest.raises(ValueError):
+        normalize_phone("123")
